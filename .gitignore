@@ -1,0 +1,4 @@
+.env
+vendor/
+cigburger_bo_layout/
+writable/
