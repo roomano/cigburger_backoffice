@@ -8,3 +8,4 @@ $routes = Services::routes();
 
 // cigburger bo routes
 $routes->get('/', 'Auth::index');
+$routes->get('test', 'Auth::test');
