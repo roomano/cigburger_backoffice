@@ -36,6 +36,10 @@ class UsersTable extends Migration
                 'type' => 'varchar',
                 'constraint' => 50
             ],
+            'phone' => [
+                'type' => 'varchar',
+                'constraint' => 20
+            ],
             'roles' => [
                 'type' => 'varchar',
                 'constraint' => 500
