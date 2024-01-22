@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use Config\Database;
+use CodeIgniter\Database\Exceptions\DatabaseException;
+
 class Auth extends BaseController
 {
     public function index()
@@ -9,8 +12,13 @@ class Auth extends BaseController
         return view('auth/index');
     }
 
-    public function test()
+    public function loginSubmit()
     {
-        return view('test');
+        echo 'login submit';
+    }
+
+    public function logout()
+    {
+        echo  'logout';
     }
 }

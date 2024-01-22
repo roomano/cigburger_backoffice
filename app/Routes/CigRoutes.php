@@ -7,5 +7,11 @@ use Config\Services;
 $routes = Services::routes();
 
 // cigburger bo routes
-$routes->get('/', 'Auth::index');
-$routes->get('test', 'Auth::test');
+
+// Main
+$routes->get('/', 'Main::index');
+
+// login || logout
+$routes->get('/auth/login', 'Auth::index');
+$routes->get('/auth/login-submit', 'Auth::loginSubmit');
+$routes->get('/auth/logout', 'Auth::logout');
