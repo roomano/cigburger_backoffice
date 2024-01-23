@@ -105,3 +105,6 @@ define('DB_HOST',       "localhost");
 define('DB_NAME',       "db_cig_burger");
 define('DB_USER',       "user_db_cig_burger");
 define('DB_PASS',       "ren7hICOqosAqu8Es7wagIjuD6KI4o");
+
+// encription key
+define('ENCRYPTION_KEY', "NZL|&p.nSs{rv*&K@nd#aUur2@Y)4L7G");

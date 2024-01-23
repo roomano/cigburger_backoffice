@@ -24,6 +24,8 @@
 
     <!-- bootstrap js -->
     <script src="<?php echo base_url('assets/libs/bootstrap/bootstrap.bundle.min.js'); ?>"></script>
+
+    <?php echo $this->renderSection('scripts'); ?>
 </body>
 
 </html>

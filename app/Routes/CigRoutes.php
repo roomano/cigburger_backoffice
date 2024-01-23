@@ -13,5 +13,5 @@ $routes->get('/', 'Main::index');
 
 // login || logout
 $routes->get('/auth/login', 'Auth::index');
-$routes->get('/auth/login-submit', 'Auth::loginSubmit');
+$routes->post('/auth/login-submit', 'Auth::loginSubmit');
 $routes->get('/auth/logout', 'Auth::logout');
