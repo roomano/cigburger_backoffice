@@ -18,6 +18,7 @@ class Auth extends BaseController
 
         // array or null
         $data['validationErrors'] = session()->getFlashdata('validationErrors');
+        $data['selectRestaurant'] = session()->getFlashdata('selectRestaurant');
 
         // if ($validationErrors) {
 
@@ -60,6 +61,8 @@ class Auth extends BaseController
         $validation = $this->validate($rules);
 
         if (!$validation) {
+            session()->setFlashdata('selectRestaurant', decrypt($this->request->getPost('selectRestaurant')));
+
             return redirect()->back()->withInput()->with('validationErrors', $this->validator->getErrors());
             // dd($this->validator->getErrors());
         }

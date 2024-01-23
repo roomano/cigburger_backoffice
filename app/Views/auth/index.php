@@ -14,7 +14,13 @@
         <select class="form-select" name="selectRestaurant" id="selectRestaurant">
             <option value=""></option>
             <?php foreach ($restaurants as $restaurant) : ?>
-                <option value="<?= encrypt($restaurant->id) ?>"><?= $restaurant->name ?></option>
+                <?php
+                $selected = '';
+                if (!empty($selectRestaurant) && $selectRestaurant == $restaurant->id) {
+                    $selected = 'selected';
+                }
+                ?>
+                <option value="<?= encrypt($restaurant->id) ?>" <?= $selected ?>><?= $restaurant->name ?></option>
             <?php endforeach; ?>
         </select>
         <?= displayError('selectRestaurant', $validationErrors) ?>
