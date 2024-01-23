@@ -16,11 +16,13 @@ class Auth extends BaseController
 
         $data['restaurants'] = $restaurants;
 
-        $validationErrors = session()->getFlashdata('validationErrors');
+        // array or null
+        $data['validationErrors'] = session()->getFlashdata('validationErrors');
 
-        if ($validationErrors) {
-            $data['validationErrors'] = $validationErrors;
-        }
+        // if ($validationErrors) {
+
+        //     $data['validationErrors'] = $validationErrors;
+        // }
 
         return view('auth/index', $data);
     }

@@ -17,21 +17,13 @@
                 <option value="<?= encrypt($restaurant->id) ?>"><?= $restaurant->name ?></option>
             <?php endforeach; ?>
         </select>
-        <?php if (isset($validationErrors['selectRestaurant'])) : ?>
-            <div class="text-white bg-danger ps-1 mt-2 rounded">
-                <span><?= $validationErrors['selectRestaurant'] ?></span>
-            </div>
-        <?php endif; ?>
+        <?= displayError('selectRestaurant', $validationErrors) ?>
     </div>
     <hr />
     <div class="mb-3">
 
         <input class="form-control" type="text" id="textUsername" name="textUsername" placeholder="Usuário" value="<?= old('textUsername') ?>">
-        <?php if (isset($validationErrors['textUsername'])) : ?>
-            <div class="text-white bg-danger ps-1 mt-2 rounded">
-                <span><?= $validationErrors['textUsername'] ?></span>
-            </div>
-        <?php endif; ?>
+        <?= displayError('textUsername', $validationErrors) ?>
     </div>
 
     <div class="mb-3">
@@ -39,13 +31,8 @@
             <input class="form-control" type="password" id="textPassword" name="textPasswrd" placeholder="Senha" value="<?= old('textPasswrd') ?>">
 
             <button class="btn btn-light" id='btnTooglePasswrdVisibility' type="button"><i class="fa-regular fa-eye"></i><i class="fa-regular fa-eye-slash d-none"></i></button>
-
         </div>
-        <?php if (isset($validationErrors['textPasswrd'])) : ?>
-            <div class="text-white bg-danger ps-1 mt-2 rounded">
-                <span><?= $validationErrors['textPasswrd'] ?></span>
-            </div>
-        <?php endif; ?>
+        <?= displayError('textPasswrd', $validationErrors) ?>
     </div>
     <div class="mb-3">
 
