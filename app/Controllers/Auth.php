@@ -3,13 +3,19 @@
 namespace App\Controllers;
 
 use App\Models\RestaurantModel;
+use App\Models\UserModel;
+use CodeIgniter\Commands\Database\Seed;
 use Config\Database;
 use CodeIgniter\Database\Exceptions\DatabaseException;
+use CodeIgniter\HTTP\IncomingRequest;
 
 class Auth extends BaseController
 {
     public function index()
     {
+        if (session()->has('user')) {
+            return redirect()->to('/');
+        }
         $data = [];
         $restaurantModel = new RestaurantModel();
         $restaurants = $restaurantModel->select('id, name',)->findAll();
@@ -18,7 +24,10 @@ class Auth extends BaseController
 
         // array or null
         $data['validationErrors'] = session()->getFlashdata('validationErrors');
+
         $data['selectRestaurant'] = session()->getFlashdata('selectRestaurant');
+
+        $data['loginError'] = session()->getFlashdata('loginError');
 
         // if ($validationErrors) {
 
@@ -67,16 +76,47 @@ class Auth extends BaseController
             // dd($this->validator->getErrors());
         }
 
-        $data = [];
-        $data['restaurantId'] = $this->request->getPost('selectRestaurant');
-        $data['userName'] = $this->request->getPost('textUsername');
-        $data['userName'] = $this->request->getPost('textUsername');
-        dd($data);
+        $username = $this->request->getPost('textUsername');
+        $passwrd = $this->request->getPost('textPasswrd');
+        $id_restaurant = decrypt($this->request->getPost('selectRestaurant'));
+
+        $userModel = new UserModel();
+        $user = $userModel->checkValidLogin($username, $passwrd, $id_restaurant);
+
+        if (!$user) {
+            session()->setFlashdata('selectRestaurant', decrypt($this->request->getPost('selectRestaurant')));
+            return redirect()->back()->withInput()->with('loginError', 'Usuário ou Senha inválidos');
+        }
+
+
+        $restaurant = new RestaurantModel();
+        $restaurantName = $restaurant->select('name')->find($user->id_restaurant)->name;
+
+        $userData = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'idRestaurant' => $user->id_restaurant,
+            'restaurantName' => $restaurantName,
+            'email' => $user->email,
+            'phone' => $user->phone,
+            'roles' => $user->roles,
+        ];
+
+        session()->set('user', $userData);
+
+        return redirect()->to('/');
+
+        // dd($data);
         // echo 'login submit ' . decrypt($restaurantId);
     }
 
     public function logout()
     {
-        echo  'logout';
+        // if ($this->request->isAjax()) {
+        //     $a = 'ajax reconhecido';
+        //     return    dd($a);
+        // }
+        session()->destroy();
+        return redirect()->to('/auth/login');
     }
 }

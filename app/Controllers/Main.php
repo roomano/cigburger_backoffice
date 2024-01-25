@@ -9,6 +9,6 @@ class Main extends BaseController
 {
     public function index()
     {
-        echo 'CIB burger main';
+        return view('dashboard/index');
     }
 }

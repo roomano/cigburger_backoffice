@@ -16,6 +16,9 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/libs/fontawesome/all.min.css'); ?>">
 <!-- css -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css'); ?>">
+<!-- page specific css -->
+<?php echo $this->renderSection('styles'); ?>
+
 </head>
 
 <body>
@@ -28,7 +31,7 @@
         <?= $this->include('layouts/partials/_main_menu') ?>
         <!-- content -->
         <!-- render section -->
-        <div class="content p-4">
+        <div class="content p-4 flex-fill">
             <?php echo $this->renderSection('content'); ?>
         </div>
     </main>
@@ -39,12 +42,16 @@
 
     <!-- bootstrap js -->
     <script src="<?php echo base_url('assets/libs/bootstrap/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/libs/jquery371.min.js'); ?>"></script>
     <script>
         document.querySelector('.btn-main-menu').addEventListener('click', () => {
             document.querySelector(".main-menu").classList.toggle('show')
             document.querySelector(".content").classList.toggle('show')
         })
     </script>
+    <!-- page specific js -->
+    <?php echo $this->renderSection('scripts'); ?>
+
 </body>
 
 </html>
