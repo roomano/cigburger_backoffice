@@ -11,3 +11,28 @@ function displayError(string $field, array $erros = null)
                 </div>";
     }
 }
+
+function calculatePromotion($value, $discount)
+{
+    if ($discount == 0) {
+        return $value;
+    }
+
+    return round($value - ($value * $discount) / 100, 2);
+}
+
+function formatPrice($price)
+{
+    return number_format($price, 2, ',', '.');
+}
+
+function printData($data, $die = true)
+{
+    echo "<pre>";
+    echo str_repeat('-', 40) . '<br> /';
+    echo print_r($data, true);
+    echo "<br/>";
+    echo str_repeat('-', 40) . '<br />';
+
+    if ($die) die(1);
+}

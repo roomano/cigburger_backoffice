@@ -1,7 +1,4 @@
 <!-- topbar -->
-<?php echo $this->section('styles'); ?>
-<link rel="stylesheet" href="<?= base_url('assets/libs/sweetalert2-11/sweetalert.min.css') ?>">
-<?php echo $this->endSection(); ?>
 <header class="top-bar d-flex justify-content-between align-items-center p-2">
     <div class="d-flex">
         <div class="btn-main-menu me-3"><i class="fa-solid fa-bars"></i></div>
@@ -15,7 +12,7 @@
         <a class="me-3 btnLogout" href="<?= site_url('/auth/logout') ?>"><i class="fa-solid fa-arrow-right-from-bracket me-3"></i>sair</a>
     </div>
     <?php echo $this->section('scripts'); ?>
-    <script src="<?= base_url('assets/libs/sweetalert2-11/sweetalert.js') ?>"></script>
+
     <script>
         let btnLogout = document.querySelector('.btnLogout');
 
@@ -37,10 +34,8 @@
                 showCancelButton: true,
                 confirmButtonText: "SIM, sair",
                 cancelButtonText: "Cancelar",
-                // reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    console.log(result, "<?= site_url('/auth/logout') ?>");
                     $.ajax({
                         url: "<?= site_url('/auth/logout') ?>",
                         headers: {
@@ -50,16 +45,6 @@
                             location.reload()
                         }
                     })
-
-                    // fetch("<?= site_url('/auth/logout') ?>", {
-                    //     method: 'GET',
-                    //     headers: {
-                    //         "Content-Type": "application/json",
-                    //         "X-Requested-With": "XMLHttpRequest"
-                    //     }
-                    // }).then(() => {
-                    //     // location.reload()
-                    // })
                 }
             });
         })
