@@ -224,7 +224,7 @@ class Stock extends BaseController
         //     $selectedFilter = decrypt($queryFilter[1]);
         // }
 
-        $movements = $this->_stockMovement($id, $filters);
+        $movements = $this->_stockMovement($id, decrypt($filters));
 
         $suppliers = [];
         $arr = json_decode(json_encode($stockModel->getStockSuppliers(session()->user['idRestaurant'])), true);
@@ -238,6 +238,7 @@ class Stock extends BaseController
             'product' => $product,
             'movements' => $movements,
             'suppliers' => $suppliers,
+            'selectedFilter' => empty($filters) ? '' : decrypt($filters)
             // 'selectedFilter' => $selectedFilter
         ];
         // dd($data);
@@ -343,10 +344,10 @@ class Stock extends BaseController
                     ->findAll(10000);
                 break;
             case substr($filter, 0, 6) == 'stksup':
-                $suppleir = substr($filter, 7);
+                $supplier = substr($filter, 7);
                 $movements = $stockModel
                     ->where('id_product', $id)
-                    ->where('stock_supplier', $suppleir)
+                    ->where('stock_supplier', $supplier)
                     ->orderBy('movement_date', 'DESC')
                     ->findAll(10000);
                 break;

@@ -53,15 +53,18 @@
                     <div class="col-auto d-inline-flex align-items-center gap-1">
                         <i class="fa-solid fa-filter me-2"></i>
                         <select id="filterSelect" class="form-select" aria-label="Default select example">
-                            <option value="<?= encrypt('ALL') ?>">Todos os movimentos</option>
-                            <option value="<?= encrypt('IN') ?>">Entradas</option>
-                            <option value="<?= encrypt('OUT') ?>">Saídas</option>
+                            <option value="<?= encrypt('') ?>" <?= $selectedFilter == '' ? "selected" : '' ?>>Todos os movimentos</option>
+                            <option value="<?= encrypt('IN') ?>" <?= $selectedFilter == 'IN' ? "selected" : '' ?>>Entradas</option>
+                            <option value="<?= encrypt('OUT') ?>" <?= $selectedFilter == 'OUT' ? "selected" : '' ?>>Saídas</option>
                             <optgroup label="Fornecedores">
                                 <?php foreach ($suppliers as $supplier) : ?>
-                                    <option value="<?= encrypt('stksup_ ' . $supplier) ?>"><?= $supplier ?></option>
+                                    <option value="<?= encrypt('stksup_' . $supplier) ?>" <?= $selectedFilter == 'stksup_' . $supplier ? "selected" : '' ?>><?= $supplier ?></option>
                                 <?php endforeach; ?>
                             </optgroup>
                         </select>
+                    </div>
+                    <div class="col text-end d-inline-flex align-items-center">
+                        <a href="<?= site_url('stock/export-csv' . encrypt($product->id)) ?>" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-download me-2"></i>Exportar tudo para CSV</a>
                     </div>
 
                 </div>
@@ -145,19 +148,13 @@
             }
         })
 
-        let filterSelect = document.querySelector('#filterSelect')
-        filterSelect.addEventListener('change', function() {
 
-            <?php if ($selectedFilter == 'IN' || 'OUT') : ?>
-                window.location.href = '';
-                window.location.href = `<?= current_url() . '?f=' ?>${this.value}`;
-            <?php endif; ?>
 
-            <?php if (in_array($selectedFilter, array_values($suppliers))) : ?>
-                window.location.href = '';
-                window.location.href = `<?= current_url() . '?s=' ?>${this.value}`;
-            <?php endif; ?>
-        });
+
+        document.querySelector('#filterSelect').addEventListener('change', function() {
+            let filter = this.value;
+            window.location.href = '<?= site_url('/stock/movement/' . encrypt($product->id)) ?>' + '/' + filter;
+        })
     })
 </script>
 <?= $this->endSection(); ?>
