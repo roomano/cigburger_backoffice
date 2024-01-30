@@ -246,6 +246,38 @@ class Stock extends BaseController
         return view('/dashboard/stock/movements', $data);
     }
 
+    public function exportCSV($encryptedId)
+    {
+        $id = decrypt($encryptedId);
+        if (empty($id)) {
+            return redirect()->to('/stock');
+        }
+
+        $stockModel  = new StockModel();
+        $movements = $stockModel->where('id_product', $id)
+            ->orderBy('movement_date', 'DESC')
+            ->findAll();
+
+        $this->response->setHeader('Content-Type', 'text/csv');
+        $this->response->setHeader('Content-Disposition', 'attachment; filename="movimentos.csv"');
+
+        $output = fopen('php://output', 'w');
+        fputcsv($output, [
+            'Data do movimento', 'Quantidade', 'Operação', 'Fornecedor', 'Notas'
+        ]);
+        foreach ($movements as $movement) {
+            fputcsv($output, [
+                $movement->movement_date,
+                $movement->stock_quantity,
+                $movement->stock_in_out,
+                $movement->stock_supplier,
+                $movement->reason,
+            ]);
+        }
+
+        fclose($output);
+    }
+
     #endregion
 
     #region PRIVATE METHODS

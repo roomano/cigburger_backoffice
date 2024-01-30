@@ -64,7 +64,7 @@
                         </select>
                     </div>
                     <div class="col text-end d-inline-flex align-items-center">
-                        <a href="<?= site_url('stock/export-csv' . encrypt($product->id)) ?>" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-download me-2"></i>Exportar tudo para CSV</a>
+                        <a href="<?= site_url('stock/export-csv/' . encrypt($product->id)) ?>" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-download me-2"></i>Exportar tudo para CSV</a>
                     </div>
 
                 </div>

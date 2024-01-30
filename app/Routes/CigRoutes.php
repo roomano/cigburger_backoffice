@@ -43,4 +43,4 @@ $routes->post('/stock/remove-submit', 'Stock::removeProductStockSubmit');
 $routes->get('/stock/movement/(:alphanum)', 'Stock::movements/$1');
 $routes->get('/stock/movement/(:alphanum)/(:alphanum)', 'Stock::movements/$1/$2');
 
-$routes->get('/stock/export-csv/(:alphanum)', 'Stock::c');
+$routes->get('/stock/export-csv/(:alphanum)', 'Stock::exportCSV/$1');
