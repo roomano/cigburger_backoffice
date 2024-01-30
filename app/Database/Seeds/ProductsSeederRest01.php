@@ -19,7 +19,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_01.png',
+                'image' => 'rest_1_Cig_Hamburger.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -32,7 +32,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_02.png',
+                'image' => 'rest_1_Cig_Cheese_In.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -45,7 +45,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_03.png',
+                'image' => 'rest_1_Cig_Double.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -58,7 +58,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_04.png',
+                'image' => 'rest_1_Cig_Double_Cheese.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -71,7 +71,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_05.png',
+                'image' => 'rest_1_Cig_Bacon_Strike.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -84,7 +84,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_06.png',
+                'image' => 'rest_1_Cig_Royale.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -97,7 +97,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_07.png',
+                'image' => 'rest_1_Cig_Chicken_Planet.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -110,7 +110,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_08.png',
+                'image' => 'rest_1_Cig_Vegan_World.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -123,7 +123,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_09.png',
+                'image' => 'rest_1_Cig_Chicken_Barbecue.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -136,7 +136,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_10.png',
+                'image' => 'rest_1_Cig_Fish_&_Sea.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -149,7 +149,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_11.png',
+                'image' => 'rest_1_Cig_Fish_&_Vegs.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -162,7 +162,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_burger_12.png',
+                'image' => 'rest_1_Cig_Master_Crusher.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -175,7 +175,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_french_fries.png',
+                'image' => 'rest_1_Batatas_fritas.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -188,7 +188,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_caffee.png',
+                'image' => 'rest_1_Café.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -201,7 +201,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_drink_01.png',
+                'image' => 'rest_1_Cig_Coca.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -214,7 +214,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_drink_02.png',
+                'image' => 'rest_1_Cig_Fanta.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -227,7 +227,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_drink_03.png',
+                'image' => 'rest_1_Cig_Ice_Tea.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -240,7 +240,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_ice_cream_01.png',
+                'image' => 'rest_1_Cig_Caramelo_Ice.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -253,7 +253,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_ice_cream_02.png',
+                'image' => 'rest_1_Cig_Chocolate_Ice.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -266,7 +266,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_ice_cream_03.png',
+                'image' => 'rest_1_Cig_Strawberry_Ice.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -279,7 +279,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_ketchup.png',
+                'image' => 'rest_1_Cig_Ketchup.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -292,7 +292,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_mustard.png',
+                'image' => 'rest_1_Cig_Mustarda.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -305,7 +305,7 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_nuggets_01.png',
+                'image' => 'rest_1_Cig_Nuggets.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -318,13 +318,13 @@ class ProductsSeederRest01 extends Seeder
                 'promotion' => 0,
                 'stock' => 1000,
                 'stock_min_limit' => 100,
-                'image' => 'rest_00001_nuggets_02.png',
+                'image' => 'rest_1_Cig_Nuggets_Box.png',
                 'created_at' => date('Y-m-d H:i:s')
             ],
         ];
 
         $this->db->table('products')->insertBatch($data);
 
-        echo "Inserted " . count($data) . " products";
+        echo PHP_EOL . "Inserted " . count($data) . " products" . PHP_EOL;
     }
 }

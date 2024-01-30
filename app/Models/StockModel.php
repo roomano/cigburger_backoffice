@@ -17,7 +17,8 @@ class StockModel extends Model
         'stock_quantity',
         'stock_supplier',
         'reason',
-        'crated_at',
+        'movement_date',
+        "stock_in_out",
         'updated_at',
     ];
 
@@ -44,4 +45,18 @@ class StockModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getStockSuppliers($idRestaurant)
+    {
+        $builder = $this->db->table('stock')
+            ->distinct()
+            ->select('stock.stock_supplier')
+            ->join('products', 'stock.id_product = products.id')
+            ->where('products.id_restaurant', $idRestaurant)
+            ->where('stock.stock_in_out', 'IN');
+
+        $query = $builder->get();
+
+        return $query->getResult();
+    }
 }

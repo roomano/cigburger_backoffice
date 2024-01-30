@@ -34,3 +34,8 @@ $routes->delete('/products/delete-submit/(:alphanum)', 'Products::deleteConfrim/
 // ========== STOCKS
 $routes->get('/stock', 'Stock::index');
 $routes->get('/stock/product/(:alphanum)', 'Stock::productStock/$1');
+$routes->get('/stock/add/(:alphanum)', 'Stock::addProductStock/$1');
+$routes->post('/stock/add-submit', 'Stock::addProductStockSubmit');
+
+$routes->get('/stock/remove/(:alphanum)', 'Stock::removeProductStock/$1');
+$routes->post('/stock/remove-submit', 'Stock::removeProductStockSubmit');

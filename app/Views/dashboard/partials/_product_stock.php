@@ -42,8 +42,8 @@
 
         </div>
         <div class="col-12 text-end">
-            <a href="#" class="btn btn-outline-success btn-sm px-3 m-1 fw-bold "><i class="fa-solid fa-plus me-2"></i>Adicionar stock</a>
-            <a href="#" class="btn btn-outline-danger btn-sm px-3 m-1 fw-bold "><i class="fa-solid fa-minus me-2"></i>Eliminar stock</a>
+            <a href="<?= site_url('/stock/add/' . encrypt($product->id)) ?>" class="btn btn-outline-success btn-sm px-3 m-1 fw-bold "><i class="fa-solid fa-plus me-2"></i>Adicionar stock</a>
+            <a href="<?= site_url('/stock/remove/' . encrypt($product->id)) ?>" class="btn btn-outline-danger btn-sm px-3 m-1 fw-bold "><i class="fa-solid fa-minus me-2"></i>Eliminar stock</a>
             <a href="#" class="btn btn-outline-secondary btn-sm px-3 m-1 fw-bold "><i class="fa-solid fa-right-left me-2"></i>Entradas e saídas</a>
         </div>
     </div>

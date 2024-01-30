@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/libs/bootstrap/bootstrap.min.css'); ?>">
 <!-- fontawesome -->
 <link rel="stylesheet" href="<?php echo base_url('assets/libs/fontawesome/all.min.css'); ?>">
-<!-- sweet alert -->
 <link rel="stylesheet" href="<?= base_url('assets/libs/sweetalert2-11/sweetalert.min.css') ?>">
+<!-- flatpicker -->
+<link rel="stylesheet" href="<?= base_url('assets/libs/flatpicker/flatpickr.min.css') ?>">
+
 <!-- css -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css'); ?>">
 <!-- page specific css -->
@@ -54,6 +56,8 @@
     </script>
     <!-- sweet alert -->
     <script src="<?= base_url('assets/libs/sweetalert2-11/sweetalert.js') ?>"></script>
+    <!-- flatpicker -->
+    <script src="<?= base_url('assets/libs/flatpicker/flatpickr.min.js') ?>"></script>
     <!-- page specific js -->
     <?php echo $this->renderSection('scripts'); ?>
 

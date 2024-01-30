@@ -39,6 +39,10 @@ class StockTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
+            'movement_date' => [
+                'type' => 'DATETIME',
+                'null' => true
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'default' => new RawSql('NOW()')
