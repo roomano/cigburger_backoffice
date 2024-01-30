@@ -23,8 +23,8 @@ class Stock extends BaseController
 
         return view('dashboard/stock/index', $data);
     }
-
-    public function productStock(string $encryptedId)
+    #region ADD STOCK
+    public function productStock()
     {
         return view('dashboard/stock/productStock', $data);
     }
@@ -110,7 +110,9 @@ class Stock extends BaseController
 
         return redirect()->back()->with('success', $dataRes);
     }
+    #enderegion
 
+    #region REMOVE STOCK
     public function removeProductStock(string $encryptedId)
     {
         $id = decrypt($encryptedId);
@@ -191,7 +193,61 @@ class Stock extends BaseController
         ];
         return redirect()->back()->with('success', $dataRes);
     }
+    #endregion
 
+    #region STOCK MOVEMENTS
+    public function movements($encryptedId, $filters = null)
+    {
+
+        // $uri = service('uri');
+        // $selectedFilter =  'ALL';
+
+        $id = decrypt($encryptedId);
+        if (empty($id)) {
+            return redirect()->to('/stock');
+        }
+
+        $stockModel = new StockModel();
+        $productModel = new ProductModel();
+        $product = $productModel->find($id);
+
+
+        // $filters  = $uri->getQuery(['only' => ['f', 's']]);
+        // if ($filters) {
+        //     $queryFilter = explode('=', $filters);
+
+        //     $filters = [
+        //         'field' => $queryFilter[0],
+        //         'value' => decrypt($queryFilter[1])
+
+        //     ];
+        //     $selectedFilter = decrypt($queryFilter[1]);
+        // }
+
+        $movements = $this->_stockMovement($id, $filters);
+
+        $suppliers = [];
+        $arr = json_decode(json_encode($stockModel->getStockSuppliers(session()->user['idRestaurant'])), true);
+        foreach ($arr as $ar) {
+            $suppliers[] = $ar['stock_supplier'];
+        }
+
+        $data = [
+            'title' => '- Movimentos de stock',
+            'page' => 'Movimentos de stock',
+            'product' => $product,
+            'movements' => $movements,
+            'suppliers' => $suppliers,
+            // 'selectedFilter' => $selectedFilter
+        ];
+        // dd($data);
+
+        return view('/dashboard/stock/movements', $data);
+    }
+
+    #endregion
+
+    #region PRIVATE METHODS
     private function _removeProductStockValidaton()
     {
         return [
@@ -258,4 +314,67 @@ class Stock extends BaseController
             ],
         ];
     }
+
+    private function _stockMovement($id, $filter)
+    {
+        $stockModel = new StockModel();
+        $movements = [];
+
+
+        switch ($filter) {
+            case '':
+                $movements = $stockModel
+                    ->where('id_product', $id)
+                    ->orderBy('movement_date', 'DESC')
+                    ->findAll(10000);
+                break;
+            case 'IN':
+                $movements = $stockModel
+                    ->where('id_product', $id)
+                    ->where('stock_in_out', 'IN')
+                    ->orderBy('movement_date', 'DESC')
+                    ->findAll(10000);
+                break;
+            case 'OUT':
+                $movements = $stockModel
+                    ->where('id_product', $id)
+                    ->where('stock_in_out', 'OUT')
+                    ->orderBy('movement_date', 'DESC')
+                    ->findAll(10000);
+                break;
+            case substr($filter, 0, 6) == 'stksup':
+                $suppleir = substr($filter, 7);
+                $movements = $stockModel
+                    ->where('id_product', $id)
+                    ->where('stock_supplier', $suppleir)
+                    ->orderBy('movement_date', 'DESC')
+                    ->findAll(10000);
+                break;
+        }
+
+        return $movements;
+
+
+        // $movements = $stockModel
+        //     ->where('id_product', $id)
+        //     ->orderBy('movement_date', 'DESC');
+
+
+        // if ($filters && $filters['field'] == 'f' && $filters['value'] != 'ALL') {
+        //     $movements->where('stock_in_out', $filters['value']);
+        // }
+
+        // if ($filters && $filters['field'] == 's' && $filters['value'] != 'ALL') {
+        //     $movements->where('stock_supplier', $filters['value']);
+        //     // dd($movements->findAll(10000));
+        // }
+
+
+
+
+    }
+
+
+    #endregion
+
 }

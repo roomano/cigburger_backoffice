@@ -3,6 +3,12 @@
 <?= $this->section('content'); ?>
 <?= $this->include('layouts/partials/_page_title'); ?>
 
+<?php if (previous_url() != current_url()) : ?>
+    <div class="mb-3">
+        <a href="<?= previous_url() ?>" class="btn btn-outline-secondary fw-bold text-dark "><i class="fa-solid fa-arrow-left me-2"></i>voltar</a>
+    </div>
+<?php endif; ?>
+
 
 <div class="content-box">
     <?php if ($serverError) : ?>

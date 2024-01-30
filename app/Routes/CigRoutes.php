@@ -39,3 +39,6 @@ $routes->post('/stock/add-submit', 'Stock::addProductStockSubmit');
 
 $routes->get('/stock/remove/(:alphanum)', 'Stock::removeProductStock/$1');
 $routes->post('/stock/remove-submit', 'Stock::removeProductStockSubmit');
+
+$routes->get('/stock/movement/(:alphanum)', 'Stock::movements/$1');
+$routes->get('/stock/movement/(:alphanum)/(:alphanum)', 'Stock::movements/$1/$2');
